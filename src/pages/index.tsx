@@ -55,7 +55,7 @@ export default function Home({ data }: pricingType) {
 
 export async function getServerSideProps() {
   try {
-    const response = await axios.get("http://localhost:8000/getPricing");
+    const response = await axios.get("http://13.49.77.37:8000/getPricing");
     const data = response.data.pricing[0];
 
  

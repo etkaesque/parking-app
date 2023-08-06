@@ -44,7 +44,7 @@ export default function PlateScaner() {
           console.log(detectedVehicle)
         if (detectedVehicle.licence_plate !== "" && detectedVehicle.vehicle_type !== "" ) {
 
-            const serverResponse = await axios.post("http://localhost:8000/vehicleCheck", detectedVehicle)
+            const serverResponse = await axios.post("http://13.49.77.37:8000/vehicleCheck", detectedVehicle)
            
             const res = serverResponse.data.response
   

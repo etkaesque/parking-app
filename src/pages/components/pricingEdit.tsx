@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { useRouter } from 'next/router';
 
 type pricingWeekType = {
   fee: number;
@@ -20,7 +21,7 @@ type vehicleType = "car" | "bus" | "motorcycle";
 
 
 export default function Pricing({ data, toggle }: pricingType) {
-
+    const router = useRouter();
     const innitForm = () => {
         return {
             car: data.car.map((item) => ({ day: item.day, fee: item.fee })),
@@ -28,6 +29,7 @@ export default function Pricing({ data, toggle }: pricingType) {
             bus: data.bus.map((item) => ({ day: item.day, fee: item.fee  })),
         };
     }
+
 
     const [formData, setFormData] = useState(innitForm());
 
@@ -53,9 +55,9 @@ export default function Pricing({ data, toggle }: pricingType) {
     const submitNewPricing = async () => {
 
         try {
-            await axios.put("http://localhost:8000/updatePricing", formData)
+            await axios.put("http://13.49.77.37:8000/updatePricing", formData)
 
-            console.log("Pricing submited")
+            router.reload();
         } catch (error) {
             console.log("Error while submiting a put request to server.", error)
         }
