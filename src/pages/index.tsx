@@ -35,7 +35,7 @@ export default function Home({ data }: pricingType) {
   return (
     <main className="grid justify-center max-w-4xl mx-auto">
 
-      <h2 className="text-xl pl-5">Plate Scaner</h2>
+      <h2 className="text-xl pl-5">Vehicle Scaner</h2>
 
       <PlateScaner/>
 
