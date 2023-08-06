@@ -62,7 +62,7 @@ export default function Pricing({ data, toggle }: pricingType) {
     const submitNewPricing = async () => {
 
         try {
-            await axios.put("https://13.49.77.37:8000/updatePricing", formData)
+            await axios.put("https://park-ce8m.onrender.com/updatePricing", formData)
 
             router.reload();
         } catch (error) {

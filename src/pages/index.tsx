@@ -43,7 +43,7 @@ export default function Home({ data }: pricingType) {
 
 export async function getServerSideProps() {
   try {
-    const response = await axios.get('https://13.49.77.37:8000/getPricing');
+    const response = await axios.get('https://park-ce8m.onrender.com/getPricing');
     const data = response.data.pricing[0];
     return { props: { data } };
   } catch (error) {
