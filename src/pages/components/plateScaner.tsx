@@ -29,7 +29,7 @@ export default function PlateScaner() {
     try {
         const response = await axios.post("https://api.platerecognizer.com/v1/plate-reader/",formData, {
             headers: {
-              'Authorization': 'Token 70d05380db8851462b58dcdb0f8d891eb47e268e'
+              'Authorization': `Token ${process.env.NEXT_PUBLIC_TOKEN}`
             }})
 
         const licence_plate = response.data.results[0].plate
