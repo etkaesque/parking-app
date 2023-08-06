@@ -21,6 +21,13 @@ type vehicleType = "car" | "bus" | "motorcycle";
 
 
 export default function Pricing({ data, toggle }: pricingType) {
+
+      if (!data) {
+      
+        return <p>Loading...</p>;
+      }
+
+
     const router = useRouter();
     const innitForm = () => {
         return {
@@ -135,15 +142,15 @@ export default function Pricing({ data, toggle }: pricingType) {
                 <tbody>
                   {week.map((day) => {
 
-                    const carFee = formData.car.find((item) => item.day === day)?.fee
-                    const busFee = formData.bus.find((item) => item.day === day)?.fee
-                    const motorcycleFee = formData.motorcycle.find((item) => item.day === day)?.fee
+                    const carFee = formData.car.find((item) => item.day === day)?.fee ?? 0;
+                    const busFee = formData.bus.find((item) => item.day === day)?.fee ?? 0;
+                    const motorcycleFee = formData.motorcycle.find((item) => item.day === day)?.fee ?? 0;
 
                     return (
-                      <tr className="border-b dark:border-neutral-500">
+                      <tr key={day} className="border-b dark:border-neutral-500">
                         <td className="whitespace-nowrap px-6 py-4 font-medium">
                           {day}
-                          <span className="block italic text-xs font-light"> {data.car.find((item) => item.day === day)?.hours}</span>
+                          <span className="block italic text-xs font-light">  {data.car.find((item) => item.day === day)?.hours ?? ""}</span>
                          
                         </td>
 

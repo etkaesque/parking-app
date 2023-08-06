@@ -56,19 +56,25 @@ export default function PlateScaner() {
               const lastVisitIndex = res.visits.length - 1;
               const lastVisit = res.visits[lastVisitIndex];
 
-              let time;
+              let time : number;
               let timeMessage
 
-              if (lastVisit.hours < 1) {
-                time = Math.round(lastVisit.hours*60)
-                timeMessage = `${time} minutes` // minutes
-                
-              } 
-
-              if (time! < 1) {
-                time = Math.round(lastVisit.hours*60*60)
-                timeMessage = `${time} seconds`
+              if(lastVisit.hours >= 1) {
+                time = parseFloat(lastVisit.hours.toFixed(2));
+                timeMessage = `${time} hours` 
               }
+
+              if (lastVisit.hours < 1) {
+                time = Math.round(lastVisit.hours*60) 
+                console.log("minutes time", time)
+                timeMessage = `${time} minutes` 
+                  if (time < 1) {
+                    time = Math.round(lastVisit.hours*60*60)
+                    console.log("seconds time", time)
+                    timeMessage = `${time} seconds`
+                  }
+
+              } 
 
 
 
